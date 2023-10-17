@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Add a CSS file for styling -->
+</head>
+<body>
+    <!-- Include the HTML structure for the pop-up -->
+    <div class="popup-container" id="popup">
+        <div class="popup-content">
+            <img src="steering-icon.png" alt="Steering Icon" class="popup-icon">
+            <style>
+                .rounded-box {
+                    background-color: red;
+                    color: white;
+                    padding: 8px;
+                    border-radius: 5px;
+                    display: inline-block;
+                }
+            </style>
+            <div class="rounded-box">
+                <p><strong>Autosteer Unavailable for the rest of this Drive</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infotainment Notifications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .infotainment-container {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .notification-list {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .notification-item {
+            margin-bottom: 10px;
+        }
+
+        .clear-button {
+            background-color: #dc3545;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="infotainment-container">
+        <h1>Notifications</h1>
+        <div class="notification-list" id="notification-list">
+            <div class="notification-item">Email: email from jorger</div>
+            <div class="notification-item">Messages: 2 New messages</div>
+            <div class="notification-item">Reminder: Today meeting at 6:00 PM </div>
+        </div>
+        <button class="clear-button" onclick="clearNextNotification()">Clear Next Notification</button>
+    </div>
+
+    <script>
+        function clearNextNotification() {
+            const notificationList = document.getElementById("notification-list");
+            const firstNotification = notificationList.firstElementChild;
+
+            if (firstNotification) {
+                notificationList.removeChild(firstNotification);
+            } 
+            
+            else {
+                alert("No more notifications to clear.");
+            }
+        }
+    </script>
+
+<script src="infotainment-warning.js"></script>
+
+</body>
+</html>

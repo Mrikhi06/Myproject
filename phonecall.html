@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css"> <!-- Add a CSS file for styling -->
+    </head>
+    <body>
+        <!-- Include the HTML structure for the pop-up -->
+        <div class="popup-container" id="popup">
+            <div class="popup-content">
+                <img src="steering-icon.png" alt="Steering Icon" class="popup-icon">
+                <style>
+                    .rounded-box {
+                        background-color: red;
+                        color: white;
+                        padding: 8px;
+                        border-radius: 5px;
+                        display: inline-block;
+                    }
+                </style>
+                <div class="rounded-box">
+                    <p><strong>Autosteer Unavailable for the rest of this Drive</strong></p>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy Phone Call</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .phone-container {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .phone-display {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .dial-pad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+        }
+
+        .dial-button {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 24px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .call-button {
+            background-color: #28a745;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .clear-button {
+            background-color: #dc3545;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-container">
+        <div class="phone-display">
+            <p id="phone-number-display">Dial a number</p>
+        </div>
+        <div class="dial-pad">
+            <div class="dial-button" onclick="appendToPhoneNumber('1')">1</div>
+            <div class="dial-button" onclick="appendToPhoneNumber('2')">2</div>
+            <div class="dial-button" onclick="appendToPhoneNumber('3')">3</div>
+            <div class="dial-button" onclick="appendToPhoneNumber('4')">4</div>
+            <div class="dial-button" onclick="appendToPhoneNumber('5')">5</div>
+            <div class="dial-button" onclick="appendToPhoneNumber('6')">6</div>
+            <div class="dial-button" onclick="appendToPhoneNumber('7')">7</div>
+            <div class="dial-button" onclick="appendToPhoneNumber('8')">8</div>
+            <div class="dial-button" onclick="appendToPhoneNumber('9')">9</div>
+            <div class="dial-button" onclick="appendToPhoneNumber('*')">*</div>
+            <div class="dial-button" onclick="appendToPhoneNumber('0')">0</div>
+            <div class="dial-button" onclick="appendToPhoneNumber('#')">#</div>
+        </div>
+        <button class="call-button" onclick="makePhoneCall()">Call</button>
+        <button class="clear-button" onclick="clearPhoneNumber()">Clear</button>
+    </div>
+
+    <script>
+        let phoneNumber = "";
+
+        function appendToPhoneNumber(digit) {
+            phoneNumber += digit;
+            document.getElementById("phone-number-display").textContent = phoneNumber;
+        }
+
+        function makePhoneCall() {
+            alert(`Calling ${phoneNumber}`);
+            phoneNumber = ""; // Clear the entered number after the call.
+            document.getElementById("phone-number-display").textContent = "Dial a number";
+        }
+
+        function clearPhoneNumber() {
+            phoneNumber = "";
+            document.getElementById("phone-number-display").textContent = "Dial a number";
+        }
+    </script>
+
+<script src="infotainment-warning.js"></script>
+
+</body>
+</html>

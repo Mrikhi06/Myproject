@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css"> <!-- Add a CSS file for styling -->
+    </head>
+    <body>
+        <!-- Include the HTML structure for the pop-up -->
+        <div class="popup-container" id="popup">
+            <div class="popup-content">
+                <img src="steering-icon.png" alt="Steering Icon" class="popup-icon">
+                <style>
+                    .rounded-box {
+                        background-color: red;
+                        color: white;
+                        padding: 8px;
+                        border-radius: 5px;
+                        display: inline-block;
+                    }
+                </style>
+                <div class="rounded-box">
+                    <p><strong>Autosteer Unavailable for the rest of this Drive</strong></p>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #audio-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        button {
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        input[type="range"] {
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Radio Station</h1>
+    </header>
+    <main>
+        <h2>Now Playing</h2>
+        <div id="audio-controls">
+            <audio id="radio-player">
+                <source src="show me the meeting.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div>
+            <button id="play-button">Play</button>
+            <button id="stop-button">Stop</button>
+        </div>
+        <div>
+            <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1">
+        </div>
+    </main>
+
+    <script>
+        const radioPlayer = document.getElementById('radio-player');
+        const playButton = document.getElementById('play-button');
+        const stopButton = document.getElementById('stop-button');
+        const volumeControl = document.getElementById('volume-control');
+
+        playButton.addEventListener('click', () => {
+            if (radioPlayer.paused) {
+                radioPlayer.play();
+            } else {
+                radioPlayer.pause();
+            }
+        });
+
+        stopButton.addEventListener('click', () => {
+            radioPlayer.pause();
+            radioPlayer.currentTime = 0;
+        });
+
+        volumeControl.addEventListener('input', () => {
+            radioPlayer.volume = volumeControl.value;
+        });
+    </script>
+
+<script src="infotainment-warning.js"></script>
+
+</body>
+</html>

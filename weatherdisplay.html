@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Add a CSS file for styling -->
+</head>
+<body>
+    <!-- Include the HTML structure for the pop-up -->
+    <div class="popup-container" id="popup">
+        <div class="popup-content">
+            <img src="steering-icon.png" alt="Steering Icon" class="popup-icon">
+            <style>
+                .rounded-box {
+                    background-color: red;
+                    color: white;
+                    padding: 8px;
+                    border-radius: 5px;
+                    display: inline-block;
+                }
+            </style>
+            <div class="rounded-box">
+                <p><strong>Autosteer Unavailable for the rest of this Drive</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #weather-data {
+            display: none;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .autocomplete {
+            max-height: 150px;
+            overflow-y: auto;
+            position: absolute;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            z-index: 1;
+        }
+
+        .autocomplete-item {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .autocomplete-item:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Weather App</h1>
+    </header>
+    <main>
+        <h2>Current Weather</h2>
+        <form id="weather-form">
+            <input type="text" id="city-input" placeholder="Enter city name...">
+            <button type="submit">Search</button>
+            <div id="autocomplete-suggestions" class="autocomplete"></div>
+        </form>
+        <div id="weather-data">
+            <h3 id="city-name"></h3>
+            <p id="temperature"></p>
+            <p id="description"></p>
+        </div>
+    </main>
+
+    <script>
+        const cityInput = document.getElementById('city-input');
+        const autocompleteSuggestions = document.getElementById('autocomplete-suggestions');
+        const weatherForm = document.getElementById('weather-form');
+        const cityName = document.getElementById('city-name');
+        const temperature = document.getElementById('temperature');
+        const description = document.getElementById('description');
+        const weatherData = document.getElementById('weather-data');
+        let timeout;
+
+        cityInput.addEventListener('input', () => {
+            clearTimeout(timeout);
+            autocompleteSuggestions.innerHTML = '';
+            const inputValue = cityInput.value.trim();
+            if (inputValue.length >= 2) {
+                timeout = setTimeout(() => {
+                    fetchCitySuggestions(inputValue);
+                }, 300);
+            }
+        });
+
+        autocompleteSuggestions.addEventListener('click', (e) => {
+            if (e.target.classList.contains('autocomplete-item')) {
+                cityInput.value = e.target.textContent;
+                autocompleteSuggestions.innerHTML = '';
+            }
+        });
+
+        weatherForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const city = cityInput.value;
+            const apiKey = 'b5776291ced5bf5fc672026852002bf3'; // Replace with your OpenWeatherMap API key
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (data.cod === 200) {
+                    cityName.textContent = `Weather in ${data.name}, ${data.sys.country}`;
+                    temperature.textContent = `${data.main.temp}°C`;
+                    description.textContent = data.weather[0].description;
+                    weatherData.style.display = 'block';
+                } else {
+                    cityName.textContent = 'City not found';
+                    weatherData.style.display = 'none';
+                }
+            } catch (error) {
+                console.error(error);
+                cityName.textContent = 'An error occurred';
+                weatherData.style.display = 'none';
+            }
+        });
+
+        async function fetchCitySuggestions(query) {
+            const apiKey = 'b5776291ced5bf5fc672026852002bf3'; // Replace with your OpenWeatherMap API key
+            const autocompleteUrl = `https://api.openweathermap.org/data/2.5/find?q=${query}&appid=${apiKey}&units=metric`;
+
+            try {
+                const response = await fetch(autocompleteUrl);
+                const data = await response.json();
+                const suggestions = data.list;
+
+                autocompleteSuggestions.innerHTML = '';
+                suggestions.forEach((suggestion) => {
+                    const item = document.createElement('div');
+                    item.classList.add('autocomplete-item');
+                    item.textContent = `${suggestion.name}, ${suggestion.sys.country}`;
+                    autocompleteSuggestions.appendChild(item);
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    </script>
+
+<script src="infotainment-warning.js"></script>
+</body>
+</html>

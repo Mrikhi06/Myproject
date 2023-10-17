@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Add a CSS file for styling -->
+</head>
+<body>
+    <!-- Include the HTML structure for the pop-up -->
+    <div class="popup-container" id="popup">
+        <div class="popup-content">
+            <img src="steering-icon.png" alt="Steering Icon" class="popup-icon">
+            <style>
+                .rounded-box {
+                    background-color: red;
+                    color: white;
+                    padding: 8px;
+                    border-radius: 5px;
+                    display: inline-block;
+                }
+            </style>
+            <div class="rounded-box">
+                <p><strong>Autosteer Unavailable for the rest of this Drive</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button.reload {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Song Search</h1>
+    </header>
+    <main>
+        <h2>Search for Songs</h2>
+        <form action="#" method="get" id="searchForm">
+            <label for="search">Enter Song Name:</label>
+            <input type="text" id="search" name="search" placeholder="Enter song name...">
+            <button type="submit">Search</button>
+        </form>
+        <h2>Top Songs</h2>
+        <ul id="songList">
+            
+			<li>"Bohemian Rhapsody" - Queen</li>
+                <li>"Imagine" - John Lennon</li>
+                <li>"Billie Jean" - Michael Jackson</li>
+                <li>"Shape of You" - Ed Sheeran</li>
+                <li>"Rolling in the Deep" - Adele</li>
+                <li>"Hey Jude" - The Beatles</li>
+                <li>"Hotel California" - Eagles</li>
+                <li>"Thriller" - Michael Jackson</li>
+                <li>"Stairway to Heaven" - Led Zeppelin</li>
+                <li>"Uptown Funk" - Mark Ronson ft. Bruno Mars</li>
+                <li>"Blinding Lights" - The Weeknd</li>
+                <li>"Despacito" - Luis Fonsi ft. Daddy Yankee</li>
+                <li>"Shallow" - Lady Gaga, Bradley Cooper</li>
+                <li>"Smells Like Teen Spirit" - Nirvana</li>
+                <li>"Shape of My Heart" - Sting</li>
+                <li>"Wonderwall" - Oasis</li>
+                <li>"I Will Always Love You" - Whitney Houston</li>
+                <li>"Hotline Bling" - Drake</li>
+                <li>"Sweet Child o' Mine" - Guns N' Roses</li>
+                <li>"Don't Stop Believin'" - Journey</li>
+				
+        </ul>
+        <button class="reload" id="reloadButton">Reload Page</button>
+    </main>
+
+    <script>
+        // JavaScript for searching and filtering songs
+        const searchForm = document.getElementById('searchForm');
+        const songList = document.getElementById('songList');
+        const songs = [...songList.getElementsByTagName('li')];
+
+        searchForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            
+            // Loop through the songs and hide those that don't match the search term
+            songs.forEach(song => {
+                const songName = song.textContent.toLowerCase();
+                if (songName.includes(searchTerm)) {
+                    song.style.display = 'block';
+                } else {
+                    song.style.display = 'none';
+                }
+            });
+        });
+
+        // JavaScript to reload the page when the reload button is clicked
+        const reloadButton = document.getElementById('reloadButton');
+        reloadButton.addEventListener('click', function () {
+            location.reload();
+        });
+    </script>
+
+<script src="infotainment-warning.js"></script>
+</body>
+</html>

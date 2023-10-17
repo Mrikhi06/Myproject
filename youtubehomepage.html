@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Add a CSS file for styling -->
+</head>
+<body>
+    <!-- Include the HTML structure for the pop-up -->
+    <div class="popup-container" id="popup">
+        <div class="popup-content">
+            <img src="steering-icon.png" alt="Steering Icon" class="popup-icon">
+            <style>
+                .rounded-box {
+                    background-color: red;
+                    color: white;
+                    padding: 8px;
+                    border-radius: 5px;
+                    display: inline-block;
+                }
+            </style>
+            <div class="rounded-box">
+                <p><strong>Autosteer Unavailable for the rest of this Drive</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+        
+        header img {
+            height: 30px;
+            margin-left: 20px;
+        }
+        
+        header form {
+            margin: 0 20px;
+            display: flex;
+        }
+        
+        header input[type="text"] {
+            flex: 1;
+            height: 30px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            padding: 5px;
+        }
+        
+        header button {
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 2px;
+            height: 36px;
+            width: 80px;
+            font-weight: bold;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        
+        .video {
+            background-color: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+            display: flex;
+        }
+        
+        .video img {
+            max-width: 300px;
+            height: auto;
+        }
+        
+        .video-info {
+            padding: 10px;
+        }
+        
+        .video-title {
+            font-weight: bold;
+        }
+        
+        .video-description {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="youtube-logo.png" alt="YouTube">
+        <form action="https://www.youtube.com/results" method="get">
+            <input type="text" name="q" placeholder="Search">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+    <main>
+        <div class="video">
+            <img src="video-thumbnail1.jpg" alt="Video Thumbnail">
+            <div class="video-info">
+                <div class="video-title">Video 1</div>
+                <div class="video-description">video description.</div>
+            </div>
+        </div>
+        <div class="video">
+            <img src="video-thumbnail2.jpg" alt="Video Thumbnail">
+            <div class="video-info">
+                <div class="video-title">Video 2</div>
+                <div class="video-description">video description.</div>
+            </div>
+        </div>
+        <!-- Add more video entries here -->
+    </main>
+    <script src="infotainment-warning.js"></script>
+</body>
+</html>

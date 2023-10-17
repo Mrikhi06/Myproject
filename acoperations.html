@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Add a CSS file for styling -->
+</head>
+<body>
+    <!-- Include the HTML structure for the pop-up -->
+    <div class="popup-container" id="popup">
+        <div class="popup-content">
+            <img src="steering-icon.png" alt="Steering Icon" class="popup-icon">
+            <style>
+                .rounded-box {
+                    background-color: red;
+                    color: white;
+                    padding: 8px;
+                    border-radius: 5px;
+                    display: inline-block;
+                }
+            </style>
+            <div class="rounded-box">
+                <p><strong>Autosteer Unavailable for the rest of this Drive</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infotainment Display with Air Conditioner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .infotainment-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature {
+            width: 30%;
+            text-align: center;
+            margin: 10px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            color: #007bff;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .feature-description {
+            margin-top: 10px;
+        }
+
+        /* Air conditioner control styles */
+        .ac-control {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ac-icon {
+            font-size: 48px;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .ac-temperature {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .ac-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .ac-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="infotainment-container">
+        <div class="feature">
+            <div class="feature-icon">
+                <i class="fas fa-car"></i>
+            </div>
+            <div class="feature-title">Air Conditioner</div>
+            <div class="feature-description">
+                <div class="ac-control">
+                    <div class="ac-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <div class="ac-temperature" id="temperature">35°C</div>
+                    <div class="ac-buttons">
+                        <button class="ac-button" onclick="increaseTemperature()">+</button>
+                        <button class="ac-button" onclick="decreaseTemperature()">-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentTemperature = 35; // Initial temperature
+
+        function increaseTemperature() {
+            currentTemperature++;
+            document.getElementById("temperature").textContent = currentTemperature + "°C";
+        }
+
+        function decreaseTemperature() {
+            currentTemperature--;
+            document.getElementById("temperature").textContent = currentTemperature + "°C";
+        }
+    </script>
+
+<script src="infotainment-warning.js"></script>
+
+</body>
+</html>

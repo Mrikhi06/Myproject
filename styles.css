@@ -1,0 +1,21 @@
+/* styles.css */
+.popup-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.popup-icon {
+    display: block;
+    margin: 0 auto; /* Center the icon horizontally */
+    width: 150px; /* Adjust the size as needed */
+    height: 120px; /* Adjust the size as needed */
+    margin-bottom: 40px;
+}
